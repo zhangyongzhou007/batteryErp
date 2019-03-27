@@ -16,8 +16,7 @@ import java.util.List;
 @RequestMapping(value = "batteryErp")
 public class BatteryErpController {
     private  static  final Logger log=Logger.getLogger(BatteryErpController.class);
-    
-    
+
     /**
      * @Author ZhangFuGui
      * @Description 

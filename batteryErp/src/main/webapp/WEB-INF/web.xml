@@ -14,7 +14,7 @@
 	</context-param>
 	<context-param>
 		<param-name>webAppRootKey</param-name>
-		<param-value>com.star.demonPro</param-value>
+		<param-value>com.star.batteryErp</param-value>
 	</context-param>
 	
 	<filter>
