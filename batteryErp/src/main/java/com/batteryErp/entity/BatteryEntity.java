@@ -48,6 +48,17 @@ public class BatteryEntity implements Serializable {
     private String deleteState;
     public  static  final  String DELETE_STATE="deleteState";
 
+    //库存变化 正数位 添加库存  负数为减少库存
+    private  Integer  repertoryChangeNum=0;
+    public  static  final  String REPERTORY_CHANGE_NUM="repertoryChangeNum";
+
+    //单条销售记录的销售额
+    private String salesSingle="0";
+
+    //仓库记录id
+    private  String repertoryRecordId;
+    public  static  final  String REPERTORY_RECORD_ID="repertoryRecordId";
+
     public String getBatteryId() {
         return batteryId;
     }
@@ -134,6 +145,30 @@ public class BatteryEntity implements Serializable {
 
     public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public Integer getRepertoryChangeNum() {
+        return repertoryChangeNum;
+    }
+
+    public void setRepertoryChangeNum(Integer repertoryChangeNum) {
+        this.repertoryChangeNum = repertoryChangeNum;
+    }
+
+    public String getRepertoryRecordId() {
+        return repertoryRecordId;
+    }
+
+    public void setRepertoryRecordId(String repertoryRecordId) {
+        this.repertoryRecordId = repertoryRecordId;
+    }
+
+    public String getSalesSingle() {
+        return salesSingle;
+    }
+
+    public void setSalesSingle(String salesSingle) {
+        this.salesSingle = salesSingle;
     }
 
     public JSONObject toJSONObject(){
