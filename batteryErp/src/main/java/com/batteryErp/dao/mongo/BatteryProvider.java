@@ -139,8 +139,10 @@ public class BatteryProvider extends WebAbstractProvider {
     public  void  deleteBatteryInfo(List<String> batteryIds){
         logger.info("删除参数："+batteryIds);
         for (String batteryId:batteryIds){
+            Document update=new Document();
+            update.append(BatteryEntity.DELETE_STATE, CommonConstant.DELETE_STATE_DELETE).append(BatteryEntity.UPDATE_TIME,DateUtil.getMoosNow());
             Document $set = mongoCollection.findOneAndUpdate(new Document(BatteryEntity.BATTERY_ID, batteryId),
-                    new Document("$set", new Document(BatteryEntity.DELETE_STATE, CommonConstant.DELETE_STATE_DELETE)));
+                    new Document("$set", update));
         }
     }
 
@@ -197,6 +199,19 @@ public class BatteryProvider extends WebAbstractProvider {
         batteryEntity.setBatteryRemainNum(next.getString(BatteryEntity.BATTERY_REMAIN_NUM));
 
         return batteryEntity;
+    }
+
+    public  long getCountByCondtion(JSONObject jsonObject){
+        Document filter=new Document();
+        if (!StringUtils.isBlank(jsonObject.getString(BatteryEntity.BATTERY_NAME))){
+            filter.append(BatteryEntity.BATTERY_NAME,jsonObject.getString(BatteryEntity.BATTERY_NAME));
+        }
+
+        if (!StringUtils.isBlank(jsonObject.getString(BatteryEntity.MODEL))){
+            filter.append(BatteryEntity.MODEL,jsonObject.getString(BatteryEntity.MODEL));
+        }
+
+        return   mongoCollection.count(filter);
     }
 
 }

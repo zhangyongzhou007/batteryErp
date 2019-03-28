@@ -34,5 +34,11 @@ public class BatteryServiceImpl implements IBatteryService {
     public long getBatterCount(JSONObject jsonObject) throws MException {
         return BatteryProvider.getInstance().getBatterCount(jsonObject);
     }
+
+    @Override
+    public long getCountByCondtion(BatteryEntity batteryEntity) throws MException {
+
+        return BatteryProvider.getInstance().getCountByCondtion(batteryEntity.toJSONObject());
+    }
 }
 

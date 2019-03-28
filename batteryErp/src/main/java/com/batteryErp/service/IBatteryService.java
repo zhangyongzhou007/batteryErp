@@ -25,6 +25,8 @@ public interface IBatteryService {
 
     long getBatterCount(JSONObject jsonObject) throws  MException;
 
+    long getCountByCondtion(BatteryEntity batteryEntity)throws  MException;
+
 
 
 }

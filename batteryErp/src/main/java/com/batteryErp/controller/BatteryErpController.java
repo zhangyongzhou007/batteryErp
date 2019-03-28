@@ -43,6 +43,10 @@ public class BatteryErpController {
     public  @ResponseBody
     JSONObject   addorUpdateBatterInfo(@RequestBody BatteryEntity batteryEntity){
         try {
+            long countByCondtion = batteryService.getCountByCondtion(batteryEntity);
+            if (countByCondtion>0){
+                return MException.create500("已存在名为："+batteryEntity.getBatteryName()+" 型号为："+batteryEntity.getModel()+"物件！").toJSONObject();
+            }
             batteryService.addorUpdateBatterInfo(batteryEntity);
             GetResultEntity getResultEntity = GetResultEntity.create200();
             return getResultEntity.toJSONObject();
