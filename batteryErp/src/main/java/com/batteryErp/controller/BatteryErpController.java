@@ -29,7 +29,7 @@ public class BatteryErpController {
      * @Date 8:51 2019/3/27 0027
      * @Param [paramJson]
      * @return net.sf.json.JSONObject
-     */
+     *//*
     @RequestMapping(value = "test.do")
     public  @ResponseBody
     JSONObject test(@RequestBody JSONObject paramJson){
@@ -37,7 +37,7 @@ public class BatteryErpController {
         GetResultEntity getResultEntity=GetResultEntity.create200();
         getResultEntity.setData(paramJson);
         return getResultEntity.toJSONObject();
-    }
+    }*/
 
     @RequestMapping(value = "addorUpdateBatterInfo.do")
     public  @ResponseBody
